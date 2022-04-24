@@ -1,0 +1,9 @@
+*~
+WSGIlog.txt
+clearsessions.sh
+delexpiredsnippets.sh
+delexpiredsnippets2.sh
+dpaste.db
+startserver.sh
+.env
+__pycache__/

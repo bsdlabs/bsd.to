@@ -1,0 +1,31 @@
+{% load i18n %}
+{% load staticfiles %}
+{% load staticinline %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  {% block meta %}<meta name="robots" content="noindex, nofollow"/>{% endblock %}
+  <style type="text/css">{% staticinline "dpaste.css" %}</style>
+</head>
+<body {% block body_type %}{%endblock %}>
+
+<header>
+  <h1>{% block headline %}<a class="home" href="{% url "snippet_new" %}"><img src={% static  "bsdpaste.png" %} alt="FreeBSD logo"></a>{% endblock %}</h1>
+  <nav>
+    <a class="nav-link" href="{% url "dpaste_about" %}">{% trans "About" %}</a>
+    <a class="nav-link" href="{% url "snippet_history" %}">{% trans "History" %}</a>
+    {%block nav_new %}<a class="btn" href="{% url "snippet_new" %}">{% trans "New snippet" %}</a>{% endblock %}
+  </nav>
+</header>
+
+{% block options %}{% endblock %}
+
+<main>{% block page %}{% endblock %}</main>
+
+<script>{% staticinline "dpaste.js" %}</script>
+</body>
+</html>
